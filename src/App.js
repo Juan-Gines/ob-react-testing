@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Contador from './components/contador/Contador';
 import InputNuevaNota from './components/InputNuevaNota';
 import ListadoNotas from './components/ListadoNotas';
 
@@ -16,6 +17,7 @@ function App() {
 			<h3>Esto va a ser una (otra) aplicación de notas</h3>
 			<InputNuevaNota addNuevaNota={addNuevaNota} />
 			<ListadoNotas notas={notas} />
+			<Contador />
 		</div>
 	);
 }
