@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import InputNuevaNota from './components/InputNuevaNota';
+import ListadoNotas from './components/ListadoNotas';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [notas, setNotas] = useState(['hacer la compra']);
+
+	const addNuevaNota = (nuevaNota) => {
+		setNotas([...notas, nuevaNota]);
+	};
+
+	return (
+		<div className='App'>
+			<h1>Sesión número 11</h1>
+			<h3>Esto va a ser una (otra) aplicación de notas</h3>
+			<InputNuevaNota addNuevaNota={addNuevaNota} />
+			<ListadoNotas notas={notas} />
+		</div>
+	);
 }
 
 export default App;

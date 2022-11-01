@@ -14,6 +14,7 @@ import {
 	devuelveNull,
 	devuelveUndefined,
 	devuelveNaN,
+	devuelveFactorial,
 } from './index';
 // Aquí vamos a crear nuestros casos de prueba
 // describe, test (it)
@@ -147,4 +148,23 @@ describe('Assersions con funciones mock', () => {
 		const res = mockFn('prueba');
 		expect(mockFn).toHaveBeenCalledWith('prueba');
 	});
+});
+describe('Assertion fúncion factorial', () => {
+	test('La función factorial funciona', () => {
+		const factorial = devuelveFactorial(12);
+		expect(factorial).toBe(479001600);
+	});
+	test('Factorial de 0 devuelve 1',()=>{
+		const factorial = devuelveFactorial(0);
+		expect(factorial).toBe(1);
+	})
+	test('Factorial de 1 devuelve 1',()=>{
+		const factorial = devuelveFactorial(1);
+		expect(factorial).toBe(1);
+	})
+	test('Factorial de negativo', ()=>{
+		const factorial = devuelveFactorial(-1);
+		console.log(factorial)
+		expect(factorial).toContain('Error los negativos no tienen factorial');
+	})
 });
