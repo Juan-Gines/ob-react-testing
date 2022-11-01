@@ -30,6 +30,7 @@ describe('Probando componente contador', () => {
 	});
 
 	test('Al hacer clic el valor es igual a 0', () => {
+		fireEvent.click(aumentar);
 		fireEvent.click(resetear);
 		const countFinal = parseInt(count.innerHTML);
 		expect(countFinal).toBe(0);
